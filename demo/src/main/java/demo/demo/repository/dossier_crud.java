@@ -20,20 +20,21 @@ public class dossier_crud implements dossier_interface {
 
     @Override
     public String adddossier(dossier dossier) {
-        String query = "INSERT INTO pfe_agri.dossier (governorat,addresse,ville,zone_totale,zone_utile,zone_couvert,formule_exploitation,etat,motif,user_id)"
-                + " VALUES(?,?,?,?,?,?,?,?,?,?)";
+        String query = "INSERT INTO pfe_agri.dossier (governorat,addresse,ville,zone_totale,zone_utile,zone_couvert,formule_exploitation,etat,motif,subvention,date,user_id)"
+                + " VALUES(?,?,?,?,?,?,?,?,?,?,?,?)";
         jdbcTemplate.update(query,
                 new Object[] { dossier.getGovernorat(),dossier.getAddresse(),dossier.getVille(),dossier.getZone_totale(),dossier.getZone_utile()
-                    ,dossier.getZone_couvert(),dossier.getFormule_exploitation(),dossier.getEtat(),dossier.getMotif(),dossier.getUser_id()});
+                    ,dossier.getZone_couvert(),dossier.getFormule_exploitation(),dossier.getEtat(),dossier.getMotif(),dossier.getSubvention(),dossier.getDate(),dossier.getUser_id()});
         return "dossier " + dossier.getId() + " ajouter avec succes";
     }
 
     @Override
     public String editdDossier(dossier dossier) {
-        String query = "UPDATE pfe_agri.dossier SET governorat=?,addresse=?,ville=?,zone_totale=?,zone_utile=?,zone_couvert=?,formule_exploitation=?,etat=?,motif=?,user_id=? where id=?";
+        String query = "UPDATE pfe_agri.dossier SET governorat=?,addresse=?,ville=?,zone_totale=?,zone_utile=?,zone_couvert=?,formule_exploitation=?,etat=?,motif=?,subvention=?,date=?,user_id=? where id=?";
         jdbcTemplate.update(query,
                 new Object[] { dossier.getGovernorat(),dossier.getAddresse(),dossier.getVille(),dossier.getZone_totale(),dossier.getZone_utile()
-                    ,dossier.getZone_couvert(),dossier.getFormule_exploitation(),dossier.getEtat(),dossier.getMotif(),dossier.getUser_id(),dossier.getId()});
+                    ,dossier.getZone_couvert(),dossier.getFormule_exploitation(),dossier.getEtat(),dossier.getMotif(),
+                    dossier.getSubvention(),dossier.getDate(), dossier.getUser_id(),dossier.getId()});
         return "dossier " + dossier.getId() + " ajouter avec succes";
      }
 

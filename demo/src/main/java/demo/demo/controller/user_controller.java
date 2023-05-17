@@ -68,7 +68,7 @@ public class user_controller {
     try {
       user_interface.adduser(new user(user.getNom(), user.getNationalite(), user.getResident(), user.getResidence(),
       user.getDate_naissance(), user.getLocal_naissance(), user.getCin(), user.getCin_creation(),
-      user.getAddresse(), user.getVille(), user.getCode_postale(), user.getGsm(), user.getEmail()));
+      user.getAddresse(), user.getVille(), user.getCode_postale(), user.getGsm(), user.getEmail(),user.getType()));
       return new ResponseEntity<>("User "+user.getNom()+" ajouter avec succes.", HttpStatus.CREATED);
     } catch (Exception e) {
       System.out.println("user add  error");
@@ -84,7 +84,7 @@ public class user_controller {
     try {
       user_interface.edituser(new user(user.getId(),user.getNom(), user.getNationalite(), user.getResident(), user.getResidence(),
       user.getDate_naissance(), user.getLocal_naissance(), user.getCin(), user.getCin_creation(),
-      user.getAddresse(), user.getVille(), user.getCode_postale(), user.getGsm(), user.getEmail()));
+      user.getAddresse(), user.getVille(), user.getCode_postale(), user.getGsm(), user.getEmail(),user.getType()));
       return new ResponseEntity<>("User "+user.getNom()+" editer avec succes.", HttpStatus.CREATED);
     } catch (Exception e) {
       System.out.println("user edit  error");

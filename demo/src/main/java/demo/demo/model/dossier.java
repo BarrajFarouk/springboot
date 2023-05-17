@@ -1,5 +1,7 @@
 package demo.demo.model;
 
+import java.sql.Date;
+
 public class dossier {
     private int id;
     private String governorat;
@@ -12,13 +14,15 @@ public class dossier {
     private String etat;
     private String motif;
     private int user_id;
+    private float subvention;
+    private Date date;
 
     public dossier() {
     }
 
     public dossier(int id, String governorat, String addresse, String ville, int zone_totale, int zone_utile,
             int zone_couvert,
-            String formule_exploitation, String etat, String motif, int user_id) {
+            String formule_exploitation, String etat, String motif,float subvention,Date date, int user_id) {
         this.id = id;
         this.governorat = governorat;
         this.addresse = addresse;
@@ -29,11 +33,13 @@ public class dossier {
         this.formule_exploitation = formule_exploitation;
         this.etat = etat;
         this.motif = motif;
+        this.subvention = subvention;
+        this.date = date;
         this.user_id = user_id;
     }
 
     public dossier(String governorat, String addresse, String ville, int zone_totale, int zone_utile, int zone_couvert,
-            String formule_exploitation, String etat, String motif, int user_id) {
+            String formule_exploitation, String etat, String motif,float subvention,Date date, int user_id) {
 
         this.governorat = governorat;
         this.addresse = addresse;
@@ -44,6 +50,8 @@ public class dossier {
         this.formule_exploitation = formule_exploitation;
         this.etat = etat;
         this.motif = motif;
+        this.user_id = user_id;
+        this.date = date;
         this.user_id = user_id;
     }
 
@@ -125,6 +133,19 @@ public class dossier {
 
     public void setMotif(String motif) {
         this.motif = motif;
+    }
+
+    public float getSubvention() {
+        return subvention;
+    }
+    public void setSubvention(float subvention) {
+        this.subvention = subvention;
+    }
+    public Date getDate() {
+        return date;
+    }
+    public void setDate(Date date) {
+        this.date = date;
     }
 
     public int getUser_id() {

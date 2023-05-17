@@ -18,13 +18,14 @@ public class user {
     private int code_postale;
     private int gsm;
     private String email;
+    private String type;
 
     public user() {
     }
 
     public user(int id, String nom, String nationalite, int resident, String residence, Date date_naissance,
             String local_naissnace, String cin,
-            Date cin_creation, String addresse, String ville, int code_postale, int gsm, String email) {
+            Date cin_creation, String addresse, String ville, int code_postale, int gsm, String email,String type) {
         this.id = id;
         this.nom = nom;
         this.nationalite = nationalite;
@@ -39,11 +40,12 @@ public class user {
         this.code_postale = code_postale;
         this.gsm = gsm;
         this.email = email;
+        this.type = type;
     }
 
     public user(String nom, String nationalite, int resident, String residence, Date date_naissance,
             String local_naissnace, String cin,
-            Date cin_creation, String addresse, String ville, int code_postale, int gsm, String email) {
+            Date cin_creation, String addresse, String ville, int code_postale, int gsm, String email,String type) {
         this.nom = nom;
         this.nationalite = nationalite;
         this.resident = resident;
@@ -57,6 +59,7 @@ public class user {
         this.code_postale = code_postale;
         this.gsm = gsm;
         this.email = email;
+        this.type = type;
     }
 
     public int getId() {
@@ -169,6 +172,12 @@ public class user {
 
     public void setEmail(String email) {
         this.email = email;
+    }
+    public String getType() {
+        return type;
+    }
+    public void setType(String type) {
+        this.type = type;
     }
 
 }

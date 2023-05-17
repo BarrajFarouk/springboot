@@ -34,12 +34,13 @@ public class user_crud implements user_interface {
 
     @Override
     public String adduser(user user) { // ajouter un user
-        String query = "INSERT INTO pfe_agri.user (nom, nationalite,resident,residence,date_naissance,local_naissance,cin,cin_creation,addresse,ville,code_postale,gsm,email)"
-                + " VALUES(?,?,?,?,?,?,?,?,?,?,?,?,?)";
+        String query = "INSERT INTO pfe_agri.user (nom, nationalite,resident,residence,date_naissance,local_naissance,cin,cin_creation,addresse,ville,code_postale,gsm,email,type)"
+                + " VALUES(?,?,?,?,?,?,?,?,?,?,?,?,?,?)";
         jdbcTemplate.update(query,
                 new Object[] { user.getNom(), user.getNationalite(), user.getResident(), user.getResidence(),
                         user.getDate_naissance(), user.getLocal_naissance(), user.getCin(), user.getCin_creation(),
-                        user.getAddresse(), user.getVille(), user.getCode_postale(), user.getGsm(), user.getEmail()
+                        user.getAddresse(), user.getVille(), user.getCode_postale(), user.getGsm(), user.getEmail(),
+                        user.getType()
                 });
         return "user" + user.getNom() + " ajouter avec succes";
     }
@@ -47,10 +48,10 @@ public class user_crud implements user_interface {
     @Override
     public String edituser(user user) { // editer un user
         jdbcTemplate.update(
-                "UPDATE pfe_agri.user SET nom=?,nationalite=?,resident=?,residence=?,date_naissance=?,local_naissance=?,cin=?,cin_creation=?,addresse=?,ville=?,code_postale=?,gsm=?,email=? where id = ?",
+                "UPDATE pfe_agri.user SET nom=?,nationalite=?,resident=?,residence=?,date_naissance=?,local_naissance=?,cin=?,cin_creation=?,addresse=?,ville=?,code_postale=?,gsm=?,email=?,type=? where id = ?",
                 new Object[] { user.getNom(), user.getNationalite(), user.getResident(), user.getResidence(),
                         user.getDate_naissance(), user.getLocal_naissance(), user.getCin(), user.getCin_creation(),
-                        user.getAddresse(), user.getVille(), user.getCode_postale(), user.getGsm(), user.getEmail(),user.getId() });
+                        user.getAddresse(), user.getVille(), user.getCode_postale(), user.getGsm(), user.getEmail(),user.getType(),user.getId() });
         return "user" + user.getNom() + " editer avec succes";
     }
 

@@ -77,7 +77,7 @@ public class dossier_controller {
             dossier_interface.adddossier(new dossier(
                     dossier.getGovernorat(), dossier.getAddresse(), dossier.getVille(), dossier.getZone_totale(),
                     dossier.getZone_utile(), dossier.getZone_couvert(), dossier.getFormule_exploitation(),
-                    dossier.getEtat(), dossier.getMotif(), dossier.getUser_id()));
+                    dossier.getEtat(), dossier.getMotif(),dossier.getSubvention(),dossier.getDate(), dossier.getUser_id()));
             return new ResponseEntity<>("dossier " + dossier.getId() + " ajouter avec succes.", HttpStatus.CREATED);
         } catch (Exception e) {
             System.out.println("dossier add  error");
@@ -95,7 +95,7 @@ public class dossier_controller {
         dossier_interface.editdDossier(new dossier(id,
             dossier.getGovernorat(), dossier.getAddresse(), dossier.getVille(), dossier.getZone_totale(),
             dossier.getZone_utile(), dossier.getZone_couvert(), dossier.getFormule_exploitation(),
-            dossier.getEtat(), dossier.getMotif(), dossier.getUser_id()));
+            dossier.getEtat(), dossier.getMotif(),dossier.getSubvention(),dossier.getDate(), dossier.getUser_id()));
       return new ResponseEntity<>("Dossier "+id+" editer avec succes.", HttpStatus.CREATED);
     } catch (Exception e) {
       System.out.println("dossier edit  error");
