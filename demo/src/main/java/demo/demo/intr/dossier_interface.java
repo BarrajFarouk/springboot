@@ -12,7 +12,7 @@ String editdDossier(dossier dossier);
 
 int deletedossier(int id);
 
-List<dossier> listdossiers(int id );
+List<dossier> listdossiers(int id, int user_id );
 
 
 }

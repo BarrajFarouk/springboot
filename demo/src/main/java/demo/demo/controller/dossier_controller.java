@@ -31,11 +31,11 @@ public class dossier_controller {
     // ********************
     // select list dossiers
     // ********************
-    @GetMapping("/get") // path du fonction
-    public ResponseEntity<List<dossier>> getalldossier() { // select les users
+    @GetMapping("/get/{user_id}") // path du fonction
+    public ResponseEntity<List<dossier>> getalldossier(@PathVariable("user_id") int user_id) { // select les users
         try { // try catch pour les erreurs
             List<dossier> dossier = new ArrayList<dossier>(); // create list instance
-            dossier_interface.listdossiers(0).forEach(dossier::add); // Inserer la resultat dans variable dossier
+            dossier_interface.listdossiers(0,user_id).forEach(dossier::add); // Inserer la resultat dans variable dossier
             if (dossier.isEmpty()) {
                 return new ResponseEntity<>(HttpStatus.NO_CONTENT); // si la resutat est vide la repose est pas de
                                                                     // contenet
@@ -51,11 +51,11 @@ public class dossier_controller {
     // ********************
     // select list dossiers
     // ********************
-    @GetMapping("/get/{id}") // path du fonction
-    public ResponseEntity<dossier> getonedossier(@PathVariable("id") int id) { // select les users
+    @GetMapping("/get/{id}/{user_id}") // path du fonction
+    public ResponseEntity<dossier> getonedossier(@PathVariable("id") int id,@PathVariable("user_id") int user_id) { // select les users
         try { // try catch pour les erreurs
             List<dossier> dossier = new ArrayList<dossier>(); // create list instance
-            dossier_interface.listdossiers(id).forEach(dossier::add); // Inserer la resultat dans variable dossier
+            dossier_interface.listdossiers(id,user_id).forEach(dossier::add); // Inserer la resultat dans variable dossier
             if (dossier.isEmpty()) {
                 return new ResponseEntity<>(HttpStatus.NO_CONTENT); // si la resutat est vide la repose est pas de
                                                                     // contenet
