@@ -1,0 +1,121 @@
+<div class="page">
+
+  <div class="formulaire">
+    <br>
+    <h3>Editer user</h3>
+    <!-- <h3>Inscription</h3> -->
+    <h4>ID : <span>2</span> </h4>
+    <form [formGroup]="formgrp" class="row" style="border : 1px white solid" (ngSubmit)="add()">
+
+      <div class="col-md-6 frleft">
+        <h3>Informations</h3>
+        <!-- ------------ nom -------------------- -->
+        <mat-form-field appearance="outline" class="col-md-11">
+          <mat-label>Nom et prenom</mat-label>
+          <input type="text" matInput placeholder="Nom et prenom" formControlName="nom">
+          <mat-icon matSuffix>person</mat-icon>
+
+          <mat-error *ngIf="formgrp.controls['nom'].hasError('required')">Nom obligatoire</mat-error>
+        </mat-form-field>
+
+        <!-- ------------ date_naissance -------------------- -->
+        <mat-form-field appearance="outline" class="col-md-6">
+          <mat-label>Date de naissance</mat-label>
+          <input type="text" matInput placeholder="YYYY-MM-DD" formControlName="date_naissance">
+          <mat-error *ngIf="formgrp.controls['date_naissance'].hasError('required')">Date de naissance
+            obligatoire</mat-error>
+          <mat-icon matSuffix>date_range</mat-icon>
+
+        </mat-form-field>
+        <!-- ------------ local_naissance -------------------- -->
+        <mat-form-field appearance="outline" class="col-md-5">
+          <mat-label>Local</mat-label>
+          <input type="text" matInput placeholder="local de naissance" formControlName="local_naissance">
+          <mat-error *ngIf="formgrp.controls['local_naissance'].hasError('required')">local de naissance
+            obligatoire</mat-error>
+          <mat-icon matSuffix>place</mat-icon>
+        </mat-form-field>
+        <!-- ------------ cin -------------------- -->
+        <mat-form-field appearance="outline" class="col-md-5">
+          <mat-label>CIN</mat-label>
+          <input type="number" matInput placeholder="Carte Identité National" formControlName="cin">
+          <mat-error *ngIf="formgrp.controls['cin'].hasError('required')">cin obligatoire</mat-error>
+          <mat-icon matSuffix>credit_card</mat-icon>
+        </mat-form-field>
+        <!-- ------------ cin_creation -------------------- -->
+        <mat-form-field appearance="outline" class="col-md-6">
+          <mat-label>Date creation CIN</mat-label>
+          <input type="text" matInput placeholder="Date creation CIN" formControlName="cin_creation">
+          <mat-error *ngIf="formgrp.controls['cin_creation'].hasError('required')">Date creation CIN
+            obligatoire</mat-error>
+          <mat-icon matSuffix>date_range</mat-icon>
+        </mat-form-field>
+        <!-- ------------ nationalite -------------------- -->
+        <mat-form-field appearance="outline" class="col-md-5">
+          <mat-label>Nationalité</mat-label>
+          <input type="text" matInput placeholder="Nationalité" formControlName="nationalite">
+          <mat-error *ngIf="formgrp.controls['nationalite'].hasError('required')">nationalite obligatoire</mat-error>
+          <mat-icon matSuffix>flag</mat-icon>
+        </mat-form-field>
+        <!-- ------------ gsm -------------------- -->
+        <mat-form-field appearance="outline" class="col-md-5">
+          <mat-label>GSM</mat-label>
+          <input type="number" matInput placeholder="GSM" formControlName="gsm">
+          <mat-error *ngIf="formgrp.controls['gsm'].hasError('required')">GSM obligatoire</mat-error>
+          <mat-icon matSuffix>phone_android</mat-icon>
+        </mat-form-field>
+      </div>
+      <!-- ------*********************************------------------------------- -->
+      <div class="col-md-5 frright">
+        <h3>Addresse</h3>
+        <!-- <mat-radio-group formControlName="resident" class="col-md-8 radio" >
+  <mat-radio-button class="example-radio-button"[value]="'oui'" >Resident</mat-radio-button>
+  <mat-radio-button class="example-radio-button"[value]="'non'" >Non resident</mat-radio-button>
+ </mat-radio-group> -->
+        <!-- ------------ residence -------------------- -->
+        <mat-form-field appearance="outline" class="col-md-7">
+          <mat-label>residence</mat-label>
+          <input type="text" matInput placeholder="Residence" formControlName="residence">
+          <mat-error *ngIf="formgrp.controls['residence'].hasError('required')">Residence obligatoire</mat-error>
+          <mat-icon matSuffix>home</mat-icon>
+        </mat-form-field>
+        <!-- ------------ resident -------------------- -->
+        <mat-checkbox formControlName="resident" color="primary" class="col-md-4">Resident</mat-checkbox>
+        <!-- ------------ addresse -------------------- -->
+        <mat-form-field appearance="outline" class="col-md-11">
+          <mat-label>Addresse</mat-label>
+          <input type="text" matInput placeholder="addresse" formControlName="addresse">
+          <mat-error *ngIf="formgrp.controls['addresse'].hasError('required')">resident obligatoire</mat-error>
+          <mat-icon matSuffix>map</mat-icon>
+        </mat-form-field>
+        <!-- ------------ ville -------------------- -->
+        <mat-form-field appearance="outline" class="col-md-4">
+          <mat-label>Ville</mat-label>
+          <input type="text" matInput placeholder="ville" formControlName="ville">
+          <mat-error *ngIf="formgrp.controls['ville'].hasError('required')">Ville obligatoire</mat-error>
+          <mat-icon matSuffix>person_pin_circle</mat-icon>
+        </mat-form-field>
+        <!-- ------------ code_postale -------------------- -->
+        <mat-form-field appearance="outline" class="col-md-5">
+          <mat-label>Code postale</mat-label>
+          <input type="number" matInput placeholder="Code postale" formControlName="code_postale">
+          <mat-error *ngIf="formgrp.controls['code_postale'].hasError('required')">code_postale obligatoire</mat-error>
+          <mat-icon matSuffix>credit_card</mat-icon>
+        </mat-form-field>
+        <!-- ------------ code_postale -------------------- -->
+        <mat-form-field appearance="outline" class="col-md-7">
+          <mat-label>Mot de passe</mat-label>
+          <input type="password" matInput placeholder="Mot de passe" >
+          <mat-error *ngIf="formgrp.controls['code_postale'].hasError('required')">paswwrod obligatoire</mat-error>
+          <mat-icon matSuffix>credit_card</mat-icon>
+        </mat-form-field>
+
+        <button class="submit col-md-7"  mat-button>Confirmer</button>
+      </div>
+
+
+
+
+    </form>
+  </div>
+</div>

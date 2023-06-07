@@ -10,7 +10,6 @@ import org.springframework.stereotype.Repository;
 
 import demo.demo.intr.dossier_interface;
 import demo.demo.model.dossier;
-import demo.demo.model.user;
 
 @Repository
 public class dossier_crud implements dossier_interface {

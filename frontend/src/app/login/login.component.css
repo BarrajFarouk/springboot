@@ -1,0 +1,48 @@
+.page {
+  max-height: 95%;
+}
+
+form {
+  height: 400px;
+  width: 400px;
+  margin:5px  auto;
+  /* border: 1px gray solid; */
+}
+.signin {
+  margin: 50px auto;
+  /* border: 1px gray solid; */
+  border-radius: 4%;
+  height: 550px;
+  width: 450px;
+  box-shadow: -1px -1px 8px 9px rgba(153,153,153,0.66);
+-webkit-box-shadow: -1px -1px 8px 9px rgba(153,153,153,0.66);
+-moz-box-shadow: -1px -1px 8px 9px rgba(153,153,153,0.66);
+  /* display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-gap: 0px; */
+}
+
+.signin_logo {
+  background-image: url("http://127.0.0.1:8080/image/frontend/logo.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  max-width: 200px;
+  height: 200px;
+  margin: 20px auto;
+}
+
+mat-form-field {
+  margin: 2px auto;
+  width: 380px;
+}
+
+.submit {
+  width: 400px;
+  background-color: #82C244;
+  color: white !important ;
+}
+.create{
+  color: red;
+  margin-left:  70%;
+  cursor:pointer;
+}

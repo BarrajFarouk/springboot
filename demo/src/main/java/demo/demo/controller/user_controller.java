@@ -64,12 +64,12 @@ public class user_controller {
   // ajouter un user
   // ********************
   @PutMapping(value="/add")
-  public ResponseEntity<String> adduser(@RequestBody user user) {
+  public ResponseEntity<user> adduser(@RequestBody user user) {
     try {
       user_interface.adduser(new user(user.getNom(), user.getNationalite(), user.getResident(), user.getResidence(),
       user.getDate_naissance(), user.getLocal_naissance(), user.getCin(), user.getCin_creation(),
       user.getAddresse(), user.getVille(), user.getCode_postale(), user.getGsm(), user.getEmail(),user.getType()));
-      return new ResponseEntity<>("User "+user.getNom()+" ajouter avec succes.", HttpStatus.CREATED);
+      return new ResponseEntity<>(user, HttpStatus.CREATED);
     } catch (Exception e) {
       System.out.println("user add  error");
       System.out.println(e);

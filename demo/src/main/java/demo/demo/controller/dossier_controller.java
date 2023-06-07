@@ -78,6 +78,7 @@ public class dossier_controller {
                     dossier.getGovernorat(), dossier.getAddresse(), dossier.getVille(), dossier.getZone_totale(),
                     dossier.getZone_utile(), dossier.getZone_couvert(), dossier.getFormule_exploitation(),
                     dossier.getEtat(), dossier.getMotif(),dossier.getSubvention(),dossier.getDate(), dossier.getUser_id()));
+                    System.out.println("Dossier added");
             return new ResponseEntity<>("dossier " + dossier.getId() + " ajouter avec succes.", HttpStatus.CREATED);
         } catch (Exception e) {
             System.out.println("dossier add  error");

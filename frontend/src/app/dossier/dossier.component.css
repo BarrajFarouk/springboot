@@ -1,0 +1,125 @@
+.page {
+  max-height: 95%;
+}
+.signin {
+  margin: 50px auto;
+  /* border: 1px gray solid; */
+  /* border-radius: 4%; */
+  height: 620px;
+  width: 750px;
+  box-shadow: -1px -1px 8px 9px rgba(153, 153, 153, 0.66);
+  -webkit-box-shadow: -1px -1px 8px 9px rgba(153, 153, 153, 0.66);
+  -moz-box-shadow: -1px -1px 8px 9px rgba(153, 153, 153, 0.66);
+}
+form {
+  /* border: 1px red solid; */
+  margin-top: 10px;
+  margin-left: 5px;
+  /* height: 600px; */
+  width: 750px;
+}
+
+mat-form-field {
+  margin: 10px 0px 0px 0px;
+  /* width: 380px; */
+}
+mat-form-field mat-icon{
+  color :#82C244;
+}
+.file_upload{
+width: 500px;
+}
+
+input[type="file"]::file-selector-button {
+  /* border-radius: 4px; */
+  padding: 0 16px;
+  height: 40px;
+  width: 180px;
+  cursor: pointer;
+  background-color: white;
+  /* border: 1px solid rgba(0, 0, 0, 0.16); */
+  box-shadow: 0px 1px 0px rgba(0, 0, 0, 0.05);
+  margin-right: 16px;
+  transition: background-color 200ms;
+}
+
+/* file upload button hover state */
+input[type="file"]::file-selector-button:hover {
+  background-color: #f3f4f6;
+}
+
+/* file upload button active state */
+input[type="file"]::file-selector-button:active {
+  background-color: #e5e7eb;
+}
+
+.submit {
+  width: 400px;
+  background-color: #82C244;
+  color: white !important ;
+  left: 20%;
+  top: 10%;
+}
+h3{
+  font-size: 30px;
+  font-weight: bold;
+  color: #82C244;
+  text-align: center;
+  margin-top: 20px;
+}
+
+th{
+  font-size: 20px;
+  font-weight: bold;
+  color: #82C244;
+
+}
+ tr:nth-child(even) {
+  background-color: #83c24416;
+  }
+td{
+  font-size: 20px;
+}
+
+
+
+.data{
+  cursor: pointer;
+
+}
+.data:hover{
+  background-color: #83c24446;
+}
+
+.folder{
+  height: 55px ;
+  background-color: #82C244 !important;
+  color :white !important;
+  margin-left: 10px;
+  font-size: 16px;
+}
+
+.files{
+ width: 120px;
+ height: 120px;
+ /* border: 1px gray solid; */
+ margin: 15px;
+ box-shadow: 5px 4px 17px -5px rgba(0,0,0,0.47);
+-webkit-box-shadow: 5px 4px 17px -5px rgba(0,0,0,0.47);
+-moz-box-shadow: 5px 4px 17px -5px rgba(0,0,0,0.47);
+cursor: pointer;
+}
+.files mat-icon{
+  color : #82C244;
+  height: auto;
+  width: auto;
+  font-size: 50px;
+  margin: auto;
+  /* background-color: aqua; */
+}
+.files p{
+  max-width: 100px;
+  width: 100px;
+  word-wrap: break-word;
+  margin: 0px auto ;
+}

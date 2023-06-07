@@ -1,0 +1,165 @@
+<div class="page">
+  <div class="row">
+    <div class="col-md-6">
+      <!-- formulaire inscription -->
+      <div class="signin">
+        <br>
+        <h3>Subvention</h3>
+        <div class="row">
+          <div class="col-md-8"></div>
+          <button *ngIf="dossier" mat-button extended (click)="invdossier()"
+            class="folder col-md-3"><mat-icon>folder_open</mat-icon>retour</button>
+          <button *ngIf="commission" mat-button extended (click)="invdossier()"
+            class="folder col-md-3"><mat-icon>folder_open</mat-icon>Ouvrir fichiers</button>
+
+        </div>
+        <form [formGroup]="formgrp" style="border : 1px white solid">
+          <!-- interface adherent  -->
+          <div *ngIf="create" class="row">
+            <!-- ------------ governorat -------------------- -->
+            <mat-form-field appearance="outline" class="col-md-4">
+              <mat-label>governorat</mat-label>
+              <input type="text" matInput placeholder="governorat" formControlName="governorat">
+              <mat-icon matSuffix>person</mat-icon>
+              <mat-error *ngIf="formgrp.controls['governorat'].hasError('required')">governorat obligatoire</mat-error>
+            </mat-form-field>
+            <!-- ------------ ville -------------------- -->
+            <mat-form-field appearance="outline" class="col-md-7">
+              <mat-label>ville</mat-label>
+              <input type="text" matInput placeholder="ville" formControlName="ville">
+              <mat-icon matSuffix>person</mat-icon>
+              <mat-error *ngIf="formgrp.controls['ville'].hasError('required')">ville obligatoire</mat-error>
+            </mat-form-field>
+            <!-- ------------ addresse -------------------- -->
+            <mat-form-field appearance="outline" class="col-md-9">
+              <mat-label>addresse</mat-label>
+              <input type="text" matInput placeholder="addresse" formControlName="addresse">
+              <mat-icon matSuffix>person</mat-icon>
+              <mat-error *ngIf="formgrp.controls['addresse'].hasError('required')">addresse obligatoire</mat-error>
+            </mat-form-field>
+            <!-- ------------ zone_totale -------------------- -->
+            <mat-form-field appearance="outline" class="col-md-4">
+              <mat-label>Zone_totale</mat-label>
+              <input type="number" matInput placeholder="zone_totale" formControlName="zone_totale">
+              <mat-error *ngIf="formgrp.controls['zone_totale'].hasError('required')">zone_totale
+                obligatoire</mat-error>
+              <mat-icon matSuffix>credit_card</mat-icon>
+            </mat-form-field>
+            <!-- ------------ zone_utile -------------------- -->
+            <mat-form-field appearance="outline" class="col-md-4">
+              <mat-label>zone_utile</mat-label>
+              <input type="number" matInput placeholder="zone_utile" formControlName="zone_utile">
+              <mat-error *ngIf="formgrp.controls['zone_utile'].hasError('required')">zone_utile obligatoire</mat-error>
+              <mat-icon matSuffix>credit_card</mat-icon>
+            </mat-form-field>
+            <!-- ------------ zone_couvert -------------------- -->
+            <mat-form-field appearance="outline" class="col-md-4">
+              <mat-label>zone_couvert</mat-label>
+              <input type="number" matInput placeholder="zone_couvert" formControlName="zone_couvert">
+              <mat-error *ngIf="formgrp.controls['zone_couvert'].hasError('required')">zone_couvert
+                obligatoire</mat-error>
+              <mat-icon matSuffix>credit_card</mat-icon>
+            </mat-form-field>
+            <!-- ------------ formule_exploitation -------------------- -->
+            <mat-form-field appearance="outline" class="col-md-9">
+              <mat-label>formule_exploitation</mat-label>
+              <input type="text" matInput placeholder="formule_exploitation" formControlName="formule_exploitation">
+              <mat-icon matSuffix>person</mat-icon>
+              <mat-error *ngIf="formgrp.controls['formule_exploitation'].hasError('required')">formule_exploitation
+                obligatoire</mat-error>
+            </mat-form-field>
+            <div class="form-group">
+              <input class="file_upload" type="file" (change)="onImageUpload($event)">
+              <!-- <input type="button" (click)="imageUploadAction()" value="Upload Image" class="btn1"> -->
+            </div>
+          </div>
+          <!-- interface commition  -->
+          <div *ngIf="commission">
+            <!-- ------------ etat -------------------- -->
+            <mat-form-field appearance="outline" class="col-md-7">
+              <mat-label>Etat du subvention</mat-label>
+              <mat-select formControlName="etat">
+                <mat-option [value]="'accepter'">Accepter</mat-option>
+                <mat-option [value]="'pending'">En cours</mat-option>
+                <mat-option [value]="'refusee'">Refusée</mat-option>
+              </mat-select>
+            </mat-form-field>
+            <!-- ------------ motif -------------------- -->
+            <mat-form-field appearance="outline" class="col-md-11">
+              <mat-label>motif</mat-label>
+              <textarea rows="5" type="text" matInput placeholder="motif" formControlName="motif"></textarea>
+              <!-- <mat-icon matSuffix>person</mat-icon> -->
+              <mat-error *ngIf="formgrp.controls['motif'].hasError('required')">motif obligatoire</mat-error>
+            </mat-form-field>
+            <!-- ------------ subvention -------------------- -->
+            <mat-form-field appearance="outline" class="col-md-5">
+              <mat-label>Subvention</mat-label>
+              <input type="number" matInput placeholder="subvention" formControlName="subvention">
+              <mat-error *ngIf="formgrp.controls['subvention'].hasError('required')">subvention
+                obligatoire</mat-error>
+              <mat-icon matSuffix>credit_card</mat-icon>
+            </mat-form-field>
+          </div>
+          <div *ngIf="dossier" class="row">
+
+            <div class="files row">
+              <mat-icon class="col-md-11">insert_drive_file</mat-icon>
+              <p class="col-md-3">file.pdf</p>
+            </div>
+            <div class="files row">
+              <mat-icon>insert_drive_file</mat-icon>
+              <p>rapport du plan du travail.pdf</p>
+            </div>
+          </div>
+
+        </form>
+        <button *ngIf="create&&!update" class="submit" (click)="add()" mat-button>Crée subvention</button>
+        <button *ngIf="commission" class="submit" (click)="edit('user')" mat-button>Confirmer</button>
+        <button *ngIf="update" class="submit" (click)="edit('user')" mat-button>Mis a jour</button>
+      </div>
+    </div>
+    <!-- -------------------------------------- -->
+    <div class="col-md-6">
+      <table class="table ">
+        <thead>
+          <tr>
+            <th>ID</th>
+            <th *ngIf="create">governorat</th>
+            <th>etat</th>
+            <th>subvention</th>
+            <th></th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let item of data" class="data" (click)="show(item)">
+            <td>{{item["id"]}}</td>
+            <td>{{item["governorat"]}}</td>
+            <td>{{item["etat"]}}</td>
+            <td>{{item["subvention"]}}</td>
+            <td>
+              <!-- <button mat-icon-button style="color : green"><mat-icon>edit</mat-icon></button> -->
+              <button mat-icon-button style="color : red" (click)="open(content)"><mat-icon>delete</mat-icon></button>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <ng-template #content let-modal>
+    <div class="modal-header">
+
+      <button type="button" class="btn-close" aria-label="Close" (click)="modal.dismiss('Cross click')"></button>
+    </div>
+    <div class="modal-body">
+      <h4>Voulez vous supprimer cette subvention </h4>
+    </div>
+    <div class="modal-footer">
+      <button type="button" class="btn btn-outline-dark" (click)="modal.close('Save click')">Annuler</button>
+      <button type="button" class="btn btn-outline-dark" (click)="modal.close('Save click')"
+        (click)="del()">Confirmer</button>
+    </div>
+  </ng-template>
+
+
+</div>
